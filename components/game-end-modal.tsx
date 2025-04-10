@@ -30,14 +30,14 @@ export function GameEndModal({ status, winner, onNewGame, onReload, onClose }: G
               : "The game ended in a draw. Better luck next time!"}
           </DialogDescription>
         </DialogHeader>
-        <DialogFooter className="flex flex-col sm:flex-row gap-2">
+        <DialogFooter className="flex flex-col sm:flex-row gap-2 justify-center sm:justify-center mt-4">
           <Button onClick={onNewGame} className="w-full sm:w-auto">
             New Game
           </Button>
           <Button onClick={onReload} variant="outline" className="w-full sm:w-auto">
             Change Settings
           </Button>
-          <Button onClick={onClose} variant="ghost" className="w-full sm:w-auto">
+          <Button onClick={onClose} variant="outline" className="w-full sm:w-auto">
             Close
           </Button>
         </DialogFooter>

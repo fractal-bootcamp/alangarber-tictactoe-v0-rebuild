@@ -63,7 +63,9 @@ export function GameSettings({ onStartGame }: GameSettingsProps) {
             </RadioGroup>
           </div>
         </CardContent>
-        <CardFooter>
+        <CardFooter className="pt-6">
+          {" "}
+          {/* Added pt-6 for more space */}
           <Button type="submit" className="w-full">
             Start Game
           </Button>

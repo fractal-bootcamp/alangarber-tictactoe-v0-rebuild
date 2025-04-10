@@ -22,16 +22,18 @@ export default function Home() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-4 md:p-24">
-      <h1 className="mb-8 text-4xl font-bold">Tic Tac Toe</h1>
+    <main className="flex min-h-screen flex-col items-center justify-center p-4 md:p-8">
+      <div className="w-full max-w-md flex flex-col items-center">
+        <h1 className="mb-8 text-4xl font-bold text-center">Tic Tac Toe</h1>
 
-      {!gameStarted ? (
-        <GameSettings onStartGame={handleStartGame} />
-      ) : (
-        <GameProvider settings={settings} onReset={handleResetGame}>
-          <GameBoard />
-        </GameProvider>
-      )}
+        {!gameStarted ? (
+          <GameSettings onStartGame={handleStartGame} />
+        ) : (
+          <GameProvider settings={settings} onReset={handleResetGame}>
+            <GameBoard />
+          </GameProvider>
+        )}
+      </div>
     </main>
   )
 }
