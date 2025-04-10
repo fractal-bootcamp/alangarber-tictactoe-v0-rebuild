@@ -5,6 +5,7 @@ import { toast } from "sonner"
 import { GameEndModal } from "@/components/game-end-modal"
 import { findBestMove } from "@/lib/minimax"
 import { useSocket } from "@/hooks/use-socket"
+import { useHeartbeat } from "@/hooks/use-heartbeat" // 🆕 Import it here!
 
 type Player = "X" | "O" | null
 type GameState = Player[][]
@@ -62,6 +63,8 @@ export function GameProvider({ children, settings, onReset }: GameProviderProps)
   const [matchmakingFailed, setMatchmakingFailed] = useState(false)
   const [roomId, setRoomId] = useState<string | null>(null)
   const [isPlayerX, setIsPlayerX] = useState(true) // By default, first player is X
+
+  useHeartbeat(waitingForOpponent)
 
   // Check for win or draw
   const checkGameStatus = useCallback((board: GameState, player: Player): GameStatus => {
